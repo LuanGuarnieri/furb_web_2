@@ -26,11 +26,14 @@ public class SecurityConfig {
             .csrf(csrf -> csrf.disable())
             .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/usuarios", "/usuarios/**",
-                                 "/login", "/login/**",
-                                 "/banco", "/banco/**")
-                .permitAll()
-                .anyRequest().authenticated()
+            	    .requestMatchers("/login", "/login/**",
+            	                     "/usuarios", "/usuarios/**",
+            	                     "/banco", "/banco/**",
+            	                     "/v3/api-docs/**",
+            	                     "/swagger-ui.html",
+            	                     "/swagger-ui/**"
+            	    ).permitAll()
+            	    .anyRequest().authenticated()
             )
             .exceptionHandling(ex -> ex.authenticationEntryPoint(entryPoint))
             .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)

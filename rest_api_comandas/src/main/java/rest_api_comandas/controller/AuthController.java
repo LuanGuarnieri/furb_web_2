@@ -26,7 +26,7 @@ public class AuthController {
         this.utilJwt = utilJwt;
     }
     
-    // POST /usuarios → cadastro
+    // POST /usuarios
     @PostMapping("/usuarios")
     public ResponseEntity<?> cadastrar(@RequestBody UsuarioPojo pojo) {
         try { 
@@ -47,7 +47,7 @@ public class AuthController {
         }
     }
 
-    // POST /login → login
+    // POST /login
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody AuthPojo credenciais) {
        try {

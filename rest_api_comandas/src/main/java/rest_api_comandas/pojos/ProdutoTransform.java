@@ -1,6 +1,6 @@
-package furb.web.rest_api_comandas.pojos;
+package rest_api_comandas.pojos;
 
-import furb.web.rest_api_comandas.model.ComandaProdutoEntity;
+import rest_api_comandas.model.ComandaProdutoEntity;
 
 public class ProdutoTransform {
 

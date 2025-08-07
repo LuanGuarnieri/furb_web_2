@@ -1,6 +1,6 @@
-package furb.web.rest_api_comandas.pojos;
+package rest_api_comandas.pojos;
 
-import furb.web.rest_api_comandas.model.UsuarioEntity;
+import rest_api_comandas.model.UsuarioEntity;
 
 public class UsuarioTransform {
 

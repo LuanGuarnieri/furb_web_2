@@ -1,11 +1,11 @@
-package furb.web.rest_api_comandas.pojos;
+package rest_api_comandas.pojos;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-import furb.web.rest_api_comandas.model.ComandaEntity;
-import furb.web.rest_api_comandas.model.ComandaProdutoEntity;
-import furb.web.rest_api_comandas.model.UsuarioEntity;
+import rest_api_comandas.model.ComandaEntity;
+import rest_api_comandas.model.ComandaProdutoEntity;
+import rest_api_comandas.model.UsuarioEntity;
 
 public class ComandaTransform {
 

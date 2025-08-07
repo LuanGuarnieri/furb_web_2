@@ -1,4 +1,4 @@
-package furb.web.rest_api_comandas.pojos;
+package rest_api_comandas.pojos;
 
 public class UsuarioPojo {
     private Long idUsuario;

@@ -1,4 +1,4 @@
-package furb.web.rest_api_comandas.model;
+package rest_api_comandas.model;
 
 import java.util.ArrayList;
 import java.util.List;

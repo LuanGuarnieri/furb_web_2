@@ -30,6 +30,11 @@ public class AuthController {
     @PostMapping("/usuarios")
     public ResponseEntity<?> cadastrar(@RequestBody UsuarioPojo pojo) {
         try { 
+        	
+        	if (usuarioRepository.findByEmail(pojo.getEmailUsuario()) != null) {
+                throw new ValidationError("Email já em utilização");
+            }
+        	
         	UsuarioEntity entity = UsuarioTransform.toEntity(pojo);
             UsuarioEntity salvo = usuarioRepository.save(entity);
             

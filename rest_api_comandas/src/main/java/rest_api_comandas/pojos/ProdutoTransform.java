@@ -5,18 +5,18 @@ import rest_api_comandas.model.ComandaProdutoEntity;
 public class ProdutoTransform {
 
     public static ProdutoPojo toPojo(ComandaProdutoEntity entity) {
-        ProdutoPojo dto = new ProdutoPojo();
-        dto.setId(entity.getId());
-        dto.setNome(entity.getNome());
-        dto.setPreco(entity.getPreco());
-        return dto;
+        ProdutoPojo pojo = new ProdutoPojo();
+        pojo.setId(entity.getId());
+        pojo.setNome(entity.getNome());
+        pojo.setPreco(entity.getPreco());
+        return pojo;
     }
 
-    public static ComandaProdutoEntity toEntity(ProdutoPojo dto) {
+    public static ComandaProdutoEntity toEntity(ProdutoPojo pojo) {
         ComandaProdutoEntity entity = new ComandaProdutoEntity();
-        entity.setId(dto.getId());
-        entity.setNome(dto.getNome());
-        entity.setPreco(dto.getPreco());
+        entity.setId(pojo.getId());
+        entity.setNome(pojo.getNome());
+        entity.setPreco(pojo.getPreco());
         return entity;
     }
 }

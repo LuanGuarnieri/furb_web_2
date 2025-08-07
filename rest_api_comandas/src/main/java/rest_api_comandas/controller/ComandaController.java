@@ -125,7 +125,7 @@ public class ComandaController extends BaseController {
                 comandaProdutoRepository.save(p);
             }
 
-            comanda.getProdutos().addAll(novosProdutos); // atualiza localmente
+            comanda.getProdutos().addAll(novosProdutos);
             
             return ComandaTransform.toPojo(comanda);    
         });

@@ -33,6 +33,7 @@ public class UtilJwt {
             Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(token);
             return true;
         } catch (Exception e) {
+            System.err.println("Erro ao validar token: " + e.getMessage());
             return false;
         }
     }

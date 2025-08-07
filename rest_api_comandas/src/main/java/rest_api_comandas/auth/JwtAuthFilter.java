@@ -28,16 +28,14 @@ public class JwtAuthFilter extends OncePerRequestFilter {
                                     FilterChain filterChain)
             throws ServletException, IOException {
 
-        String path = request.getRequestURI();
+    	String path = request.getServletPath();
 
-        // Ignora autenticação para os endpoints públicos
-        if (path.startsWith("/RestAPIFurb/usuarios") ||
-        	    path.startsWith("/RestAPIFurb/login") ||
-        	    path.startsWith("/RestAPIFurb/banco")) {
-        	    filterChain.doFilter(request, response);
-        	    return;
+    	// Ignora autenticação para os endpoints públicos
+    	if (path.matches("^/(usuarios|login|banco).*")) {
+    	    filterChain.doFilter(request, response);
+    	    return;
     	}
-
+        
         String authHeader = request.getHeader("Authorization");
 
         if (authHeader != null && authHeader.startsWith("Bearer ")) {

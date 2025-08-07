@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import jakarta.validation.Valid;
 import rest_api_comandas.errors.ValidationError;
 import rest_api_comandas.model.ComandaEntity;
 import rest_api_comandas.model.ComandaProdutoEntity;
@@ -75,7 +76,7 @@ public class ComandaController extends BaseController {
     }
 
     @PostMapping
-    public ResponseEntity<?> criar(@RequestBody ComandaPojo dto) {
+    public ResponseEntity<?> criar(@Valid @RequestBody ComandaPojo dto) {
         return executar(() -> {
         	// Verifica se o usuário existe
             UsuarioEntity usuario = usuarioRepository.findById(dto.getIdUsuario()).orElse(null);
@@ -105,7 +106,7 @@ public class ComandaController extends BaseController {
 
     // PUT /comandas/{id}
     @PutMapping("/{id}")
-    public ResponseEntity<?> atualizar(@PathVariable Long id, @RequestBody ComandaPojo dto) {
+    public ResponseEntity<?> atualizar(@PathVariable Long id, @Valid @RequestBody ComandaPojo dto) {
         return executar(() -> {
         	Optional<ComandaEntity> opt = comandaRepository.findById(id);
             if (opt.isEmpty()) {

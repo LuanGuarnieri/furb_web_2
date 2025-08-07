@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import jakarta.validation.Valid;
 import rest_api_comandas.auth.UtilJwt;
 import rest_api_comandas.errors.ValidationError;
 import rest_api_comandas.model.UsuarioEntity;
@@ -28,7 +29,7 @@ public class AuthController {
     
     // POST /usuarios
     @PostMapping("/usuarios")
-    public ResponseEntity<?> cadastrar(@RequestBody UsuarioPojo pojo) {
+    public ResponseEntity<?> cadastrar(@Valid @RequestBody UsuarioPojo pojo) {
         try { 
         	
         	if (usuarioRepository.findByEmail(pojo.getEmailUsuario()) != null) {
@@ -49,7 +50,7 @@ public class AuthController {
 
     // POST /login
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody AuthPojo credenciais) {
+    public ResponseEntity<?> login(@Valid @RequestBody AuthPojo credenciais) {
        try {
     	   UsuarioEntity usuario = usuarioRepository.findByEmail(credenciais.getEmail());
            

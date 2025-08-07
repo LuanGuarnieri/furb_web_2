@@ -1,0 +1,46 @@
+-- adicionar usuario:
+post http://localhost:8080/RestAPIFurb/usuarios
+Content-Type : application/json
+{
+  "nomeUsuario": "Luan Guarnieri",
+  "emailUsuario": "luanxxxxx@email.com",
+  "senhaUsuario": "luan123",
+  "telefoneUsuario" : "47900000000"
+}
+
+token: TOKEN_GERADO
+
+-- fazer login
+POST http://localhost:8080/RestAPIFurb/login
+Content-Type : application/json
+{
+  "email": "luanxxxxx@email.com",
+  "senha": "luan123"
+}
+
+-- buscar todas as comandas
+GET http://localhost:8080/RestAPIFurb/comandas
+Authorization : TOKEN_GERADO
+
+-- buscar comandas especificas
+GET http://localhost:8080/RestAPIFurb/comandas/2
+Authorization : TOKEN_GERADO
+
+
+-- adicionar comandas
+POST http://localhost:8080/RestAPIFurb/comandas
+Authorization : TOKEN_GERADO
+Content-Type : application/json
+
+-- atualizar comandas
+PUT http://localhost:8080/RestAPIFurb/comandas/1
+Authorization : TOKEN_GERADO
+Content-Type : application/json
+
+-- deletar comanda
+http://localhost:8080/RestAPIFurb/comandas/1
+Authorization : TOKEN_GERADO
+Content-Type : application/json
+
+-- acessar swegger
+http://localhost:8080/RestAPIFurb/swagger-ui/index.html
